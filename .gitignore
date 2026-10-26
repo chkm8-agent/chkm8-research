@@ -1,0 +1,15 @@
+# Collected data and backtest output (regenerate with the collectors / backtests)
+*.json
+# Rendered output
+*.html
+
+# Local/OS noise
+__pycache__/
+*.pyc
+.DS_Store
+
+# Secrets never live in files here, but just in case
+.env
+.env.*
+*.pem
+*.key
