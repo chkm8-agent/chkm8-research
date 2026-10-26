@@ -1,5 +1,7 @@
 # chkm8-research
 
+Part of **chkm8**, r3lik's autonomous crypto research and trading agent, built on a stock [Hermes Agent](https://hermes-agent.nousresearch.com) install. Main repo: [chkm8-agent/chkm8](https://github.com/chkm8-agent/chkm8).
+
 Data collectors, digest mailer and backtests behind chkm8's daily market digests.
 
 - `digest_collect.py`: morning market digest data (CoinGecko, DefiLlama, Lighter perps, X chatter,
@@ -12,3 +14,7 @@ Data collectors, digest mailer and backtests behind chkm8's daily market digests
 - `swarms_brief/`: one-off research brief.
 
 Collected data (`*.json`) and rendered HTML are gitignored.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
