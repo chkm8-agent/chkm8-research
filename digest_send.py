@@ -20,7 +20,7 @@ TO = ["<redacted:agent-email>", "<redacted:owner-email>"]
 FROM = "<redacted:agent-email>"
 BRAVE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 W = 720
-LOCKED_THEME = None            # e.g. "Broadsheet" once the operator picks one
+LOCKED_THEME = "Solarized"     # operator 2026-10-23: no more rotation. An edition's own theme= wins (market: Swiss, 2026-10-26)
 ROTATION_START = _date(2026, 10, 5)   # Monday; week 0 of the rotation
 
 SERIF = "'Iowan Old Style','Palatino',Georgia,serif"
@@ -54,6 +54,47 @@ THEMES = [
          line="#111111", th="#ffe066", brief_bg="#111111", brief_fg="#fff7c2", brief_lbl="#ffe44d",
          pos="#006b2b", neg="#c4001a", bpos="#7dff9e", bneg="#ff8a8a", head="'Impact','Haettenschweiler',sans-serif",
          body=SANS, radius=4, rule="3px solid", h1=58, kick_case="uppercase"),
+    # ---- 10 more options (2026-10-23), not in use until picked
+    dict(name="Nord", bg=(46, 52, 64), fg="#eceff4", muted="#9aa5b8", accent="#88c0d0", card="#3b4252",
+         line="#4c566a", th="#434c5e", brief_bg="#88c0d0", brief_fg="#2e3440", brief_lbl="#2e3440",
+         pos="#a3be8c", neg="#bf616a", bpos="#2e5d1f", bneg="#7a1f27", head=GROTESK, body=SANS, radius=8,
+         rule="2px solid", h1=46, kick_case="uppercase"),
+    dict(name="FT", bg=(255, 241, 229), fg="#33302e", muted="#807973", accent="#0d7680", card="#fff9f5",
+         line="#e6d9ce", th="#f2dfce", brief_bg="#33302e", brief_fg="#fff1e5", brief_lbl="#f2a68c",
+         pos="#09a25a", neg="#cc0000", bpos="#7fe0a8", bneg="#ff9a9a", head=SERIF, body=SERIF, radius=0,
+         rule="1px solid", h1=48, kick_case="uppercase"),
+    dict(name="Solarized", bg=(0, 43, 54), fg="#eee8d5", muted="#839496", accent="#b58900", card="#073642",
+         line="#0f4c5c", th="#083e4b", brief_bg="#b58900", brief_fg="#002b36", brief_lbl="#002b36",
+         pos="#859900", neg="#dc322f", bpos="#2f3a00", bneg="#5c0f0d", head=MONO, body=SANS, radius=4,
+         rule="2px solid", h1=42, kick_case="none"),
+    dict(name="Blueprint", bg=(16, 52, 110), fg="#e8f1ff", muted="#9cb8e0", accent="#ffffff", card="#163f80",
+         line="#3d67a8", th="#1a4a92", brief_bg="#e8f1ff", brief_fg="#10346e", brief_lbl="#10346e",
+         pos="#8cf2b0", neg="#ff9a8a", bpos="#0a5a2a", bneg="#8a1a10", head=MONO, body=MONO, radius=0,
+         rule="1px dashed", h1=40, kick_case="uppercase"),
+    dict(name="Gruvbox", bg=(40, 40, 40), fg="#ebdbb2", muted="#a89984", accent="#fe8019", card="#32302f",
+         line="#504945", th="#3c3836", brief_bg="#fabd2f", brief_fg="#282828", brief_lbl="#282828",
+         pos="#b8bb26", neg="#fb4934", bpos="#3a3c00", bneg="#6a120a", head=MONO, body=SANS, radius=6,
+         rule="2px solid", h1=44, kick_case="none"),
+    dict(name="Dracula", bg=(40, 42, 54), fg="#f8f8f2", muted="#a0a4c4", accent="#bd93f9", card="#343746",
+         line="#44475a", th="#3a3d4e", brief_bg="#bd93f9", brief_fg="#282a36", brief_lbl="#282a36",
+         pos="#50fa7b", neg="#ff5555", bpos="#0f5a24", bneg="#7a1010", head=GROTESK, body=SANS, radius=12,
+         rule="2px solid", h1=46, kick_case="uppercase"),
+    dict(name="Ledger", bg=(244, 240, 225), fg="#2a2a2a", muted="#7a7262", accent="#1f5c3a", card="#fbf9f0",
+         line="#c9c1a8", th="#e9e2c9", brief_bg="#1f5c3a", brief_fg="#f4f0e1", brief_lbl="#d9e8c4",
+         pos="#1f5c3a", neg="#a3261b", bpos="#bff0c9", bneg="#ffb3a8", head=SERIF, body=MONO, radius=0,
+         rule="3px double", h1=44, kick_case="uppercase"),
+    dict(name="Neon", bg=(10, 10, 10), fg="#f5f5f5", muted="#8c8c8c", accent="#f5e100", card="#151515",
+         line="#2e2e2e", th="#1c1c1c", brief_bg="#f5e100", brief_fg="#0a0a0a", brief_lbl="#0a0a0a",
+         pos="#00ffa3", neg="#ff2e63", bpos="#004d31", bneg="#6b0020", head=GROTESK, body=GROTESK, radius=0,
+         rule="3px solid", h1=58, kick_case="uppercase"),
+    dict(name="Minimal", bg=(250, 250, 250), fg="#18181b", muted="#71717a", accent="#2563eb", card="#ffffff",
+         line="#e4e4e7", th="#f4f4f5", brief_bg="#18181b", brief_fg="#fafafa", brief_lbl="#93c5fd",
+         pos="#16a34a", neg="#dc2626", bpos="#86efac", bneg="#fca5a5", head=SANS, body=SANS, radius=14,
+         rule="1px solid", h1=44, kick_case="none"),
+    dict(name="Sakura", bg=(255, 244, 246), fg="#3a2a30", muted="#9a7d86", accent="#d6336c", card="#ffffff",
+         line="#f3d3dc", th="#fde6ec", brief_bg="#3a2a30", brief_fg="#fff4f6", brief_lbl="#ffb3c8",
+         pos="#2f9e44", neg="#d6336c", bpos="#b2f2bb", bneg="#ffc9d9", head=SERIF, body=SANS, radius=18,
+         rule="2px solid", h1=48, kick_case="none"),
 ]
 
 PREVIEW = False
@@ -68,7 +109,7 @@ def pick_theme(name=None):
     return THEMES[(1 + weeks) % len(THEMES)]                     # week 0 = Terminal (Broadsheet ran first)
 
 EDITIONS = {
-    "market": dict(title="The chkm8 Digest", kick="Morning edition · crypto · perps · vibes",
+    "market": dict(title="The chkm8 Digest", theme="Swiss", kick="Morning edition · crypto · perps · vibes",
                    tag="dispatches from an AI with a hot wallet and opinions", emoji="☕", brief="The brief",
                    sections=[("market", "📊", "The Market"), ("radar", "🔭", "Spot Radar"), ("spot", "🔭", "Spot Radar"),
                              ("mover", "🚀", "Movers & Shakers"), ("trend", "🔥", "Narratives & CT Pulse"),
@@ -232,7 +273,7 @@ def render(md_text, png, issue, date, ed, theme):
 <div class="meta"><span>Issue #{issue}</span><span>{date:%A, %B %-d, %Y}</span><span>{max(1, round(words / 220))} min read</span></div>
 {brief}{note}{''.join(body)}{sign}
 <div class="foot">{E.get('foot', "chkm8 🤖 · @Chkm8_agent · <redacted:wallet-short> · automated · not financial advice")}
-{(f'<div class="theme">design preview: {theme["name"]}</div>' if PREVIEW else '') if E.get('theme') else f'<div class="theme">this week' + "'" + f's look: {theme["name"]} · design rotates every Monday</div>'}</div>
+{(f'<div class="theme">design preview: {theme["name"]}</div>' if PREVIEW else '') if E.get('theme') else f'<div class="theme">design: {theme["name"]}</div>'}</div>
 </div></body></html>"""
     hp = png[:-4] + ".html"
     open(hp, "w").write(sparkify(colorize(page, invert=E.get("invert", False))))
