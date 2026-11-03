@@ -55,7 +55,7 @@ def xsearch(query, n):
 
 def main():
     os.makedirs(RAW, exist_ok=True)
-    out = {"generated_utc": datetime.now(timezone.utc).isoformat()}
+    out: dict = {"generated_utc": datetime.now(timezone.utc).isoformat()}
     L = []
 
     # ---- global
@@ -231,6 +231,26 @@ def main():
           + t["text"].replace("\n", " ")[:260] for t in tposts[:25]]
     out["x_traders"] = [{"user": tusers.get(t["author_id"]), "text": t["text"], "m": t["public_metrics"],
                          "at": t["created_at"]} for t in tposts[:40]]
+
+    # ---- live trading status (2026-11-02): ground truth for "are entries paused?", read fresh every run so the
+    # digest never carries an old pause line forward from its previous issue.
+    try:
+        jobs = json.load(open(os.path.expanduser("~/.hermes/cron/jobs.json")))
+        jobs = jobs["jobs"] if isinstance(jobs, dict) else jobs
+        st = {j.get("id"): j for j in jobs}
+        resp, call = st.get("1be97f016d72", {}), st.get("75243ab3fb98", {})
+        paused = (not resp.get("enabled", False)) or call.get("prompt", "").startswith("NEW ENTRIES PAUSED")
+        L.append("\n## LIVE TRADING STATUS (authoritative; overrides anything in previous issues)")
+        L.append(f"- New live entries: {'PAUSED' if paused else 'ACTIVE'} (signal responder "
+                 f"{'enabled' if resp.get('enabled') else 'paused'}; trade calls 06:00 + 18:00 PT)")
+        try:
+            last = [l.strip() for l in open(os.path.expanduser("~/chkm8/logs/trade_calls.log")) if l.strip()][-4:]
+            L += ["- recent decision: " + l[:200] for l in last]
+        except FileNotFoundError:
+            pass
+        out["trading_status"] = {"entries": "paused" if paused else "active"}
+    except Exception as e:
+        L.append(f"\n## LIVE TRADING STATUS: unavailable ({e!r})")
 
     # ---- score previous watchlist signals
     try: sig = json.load(open(SIGNALS))
