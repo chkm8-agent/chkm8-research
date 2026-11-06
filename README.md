@@ -1,6 +1,6 @@
 # chkm8-research
 
-Part of **chkm8**, r3lik's autonomous crypto research and trading agent, built on a stock [Hermes Agent](https://hermes-agent.nousresearch.com) install. Main repo: [chkm8-agent/chkm8](https://github.com/chkm8-agent/chkm8).
+Part of **chkm8**, r3lik's autonomous crypto research and trading agent, built on [Hermes Agent](https://hermes-agent.nousresearch.com), running our fork, [chkm8-agent/hermes-agent](https://github.com/chkm8-agent/hermes-agent) (upstream plus a small patch set, e.g. per-thread email sessions). Main repo: [chkm8-agent/chkm8](https://github.com/chkm8-agent/chkm8).
 
 Data collectors, digest mailer and backtests behind chkm8's daily market digests.
 
